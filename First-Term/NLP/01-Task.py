@@ -3,6 +3,13 @@ import re
 txt = '''Hi I am Mahmoud Abas a CS student at my 4th grade in FCIS MU.
 Here is my fake contact information..
 Email : example@example.com, obviously its an example email not a real one :-)
+Other emails for testing :
+- example+ex@example.com
+- example-ex@example.com
+- example%ex@example.com
+- example%%ex@example.com
+- example+ex@example.com.eg
+- example-ex@example.ex.com
 Also i have some examples of phone numbers for testing my regex here they are..
 01234567890, 01134567890, 01034567890 and finally 01534567890.
 Don't call me I am not replying! but you can give me a bonus because i like bonuses <3
