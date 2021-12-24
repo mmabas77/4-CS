@@ -6,7 +6,7 @@ from nltk import PorterStemmer
 from nltk import LancasterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-
+from collections import Counter
 
 def download_book():
     nltk.downloader.download('book')
@@ -65,3 +65,22 @@ def word_net_lemmatizer(text):
         lst.append(lem.lemmatize(token))
 
     return " ".join(lst)
+
+def create_gram(text, n):
+    txt = " ".join(text)
+    tokens = txt.split()
+    gram = [" ".join(tokens[i:i+n]) for i in range (len(tokens)-n+1)]
+    print("\n Result_Create Gram \n")
+    print(gram)
+    return gram
+
+def counter_gram(text,n):
+    tokens =create_gram(text, n)
+    print("\n Result_Count Grams \n")
+    print(Counter(tokens))
+   
+    
+    
+
+
+

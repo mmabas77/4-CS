@@ -10,6 +10,7 @@ def apply_minmax_scaling(minmax_scaling, original_data):
     return minmax_scaling(original_data, columns=[0])
 
 
+
 def apply_normalization(stats, original_data):
     """
     In general, you'll normalize your data if you're going to be
