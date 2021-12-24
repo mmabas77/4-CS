@@ -40,7 +40,7 @@ def prepare_data_frame():
 def read_data():
     true_df = df_utils.csv_to_dataframe(pd, './dataset/True.csv')
     true_df["c"] = 1
-    false_df = df_utils.csv_to_dataframe(pd, './dataset/True.csv')
+    false_df = df_utils.csv_to_dataframe(pd, './dataset/Fake.csv')
     false_df["c"] = 0
     df = pd.concat([true_df, false_df])
     df = df.sample(frac=1)
@@ -48,7 +48,7 @@ def read_data():
     df.drop(["index"], axis=1, inplace=True)
 
     # Todo : Remove this in production code
-    df = df.head()
+    df = df[:100]
     return df
 
 
