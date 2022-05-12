@@ -8,6 +8,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from collections import Counter
 
+
 def download_book():
     nltk.downloader.download('book')
 
@@ -66,21 +67,38 @@ def word_net_lemmatizer(text):
 
     return " ".join(lst)
 
+
 def create_gram(text, n):
     txt = " ".join(text)
     tokens = txt.split()
-    gram = [" ".join(tokens[i:i+n]) for i in range (len(tokens)-n+1)]
+    gram = [" ".join(tokens[i:i + n]) for i in range(len(tokens) - n + 1)]
     print("\n Result_Create Gram \n")
     print(gram)
     return gram
 
-def counter_gram(text,n):
-    tokens =create_gram(text, n)
-    print("\n Result_Count Grams \n")
-    print(Counter(tokens))
-   
-    
-    
+
+def printGramsCount(text, n):
+    grams = create_gram(text, n)
+    grams_1 = create_gram(text, n - 1)
+    nGCount = Counter(grams)
+    n_1GCount = Counter(grams_1)
+    print(nGCount)
+    print(n_1GCount)
+    for gram in grams:
+        n_1_gram = " ".join(gram.split()[:2])
+        prob = nGCount[gram] / n_1GCount[n_1_gram]
+        print(f"Print{prob}")
 
 
-
+def counter_gram(text, n):
+    printGramsCount(text, n)
+    # tokens = create_gram(text, n)
+    # counter = Counter(tokens)
+    # print("\n Result_Count Grams \n")
+    # print(Counter(tokens))0
+    # for i in range(len(tokens) - 1):
+    #     now = counter[i][1]
+    #     prev = tokens[i][:2]
+    #     prev = Counter[prev][1]
+    #     print(now/prev)
+    #
